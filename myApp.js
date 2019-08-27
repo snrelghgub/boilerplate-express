@@ -19,6 +19,11 @@ app.get("/", function(req, res){
 });
 */
 
+/** 11) Get ready for POST Requests - the `body-parser` */
+// place it before all the routes !
+let urlEncodedData = bodyParser.urlencoded({extended: false});
+app.use(urlEncodedData); 
+
 /** 7) Root-level Middleware - A logger */
 //  place it before all the routes !
 app.use(function(req, res, next){
@@ -68,10 +73,6 @@ app.get('/name', function(req,res){
   let lastName = req.query.last;
   res.json({name: firstName + ' ' + lastName}); 
 });
-
-  
-/** 11) Get ready for POST Requests - the `body-parser` */
-// place it before all the routes !
 
 
 /** 12) Get data form POST  */
